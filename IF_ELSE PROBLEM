@@ -1,0 +1,18 @@
+def check_weirdness(n):
+    if n % 2 != 0:
+        print("Weird")
+    elif n % 2 == 0 and 2 <= n <= 5:
+        print("Not Weird")
+    elif n % 2 == 0 and 6 <= n <= 20:
+        print("Weird")
+    elif n % 2 == 0 and n > 20:
+        print("Not Weird")
+
+# Reading input
+n = int(input().strip())
+
+# Checking the constraints
+if 1 <= n <= 100:
+    check_weirdness(n)
+else:
+    print("Input given is out of range!")
