@@ -1,0 +1,13 @@
+# Read input
+n = int(input().strip())
+scores = list(map(int, input().strip().split()))
+
+# Convert the list to a set to remove duplicates and then back to a sorted list in descending order
+unique_scores = list(set(scores))
+unique_scores.sort(reverse=True)
+
+# The runner-up score is the second highest score in the sorted list
+runner_up_score = unique_scores[1]
+
+# Print the runner-up score
+print(runner_up_score)
