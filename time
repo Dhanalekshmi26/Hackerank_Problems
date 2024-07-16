@@ -1,0 +1,41 @@
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'timeConversion' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts STRING s as parameter.
+#
+
+def timeConversion(s):
+    # Extract the period (AM/PM)
+    period = s[-2:]
+    # Extract the hour part
+    hour = int(s[:2])
+    
+    if period == 'AM':
+        # Special case for 12 AM
+        if hour == 12:
+            hour = 0
+    else:
+        # Special case for 12 PM
+        if hour != 12:
+            hour += 12
+    
+    # Format the hour back to two digits and append the rest of the time
+    return f"{hour:02d}{s[2:-2]}"
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = timeConversion(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
